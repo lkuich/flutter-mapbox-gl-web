@@ -62,7 +62,8 @@ class SymbolManager extends FeatureManager<SymbolOptions> {
       if (event.id == '') {
         return;
       }
-      var density = context['window'].devicePixelRatio ?? 1;
+      int density = (context['window'].devicePixelRatio as double).round();
+      if (density > 3) density = 3;
       var imagePath = '/assets/assets/symbols/$density.0x/${event.id}';
       print(imagePath);
       map.loadImage(imagePath, (error, image) {

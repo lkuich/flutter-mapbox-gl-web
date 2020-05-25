@@ -34,7 +34,8 @@ class MapboxMapController extends MapboxGlPlatform
     // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory('plugins.flutter.io/mapbox_gl',
         (int viewId) {
-      _callbacks.elementAt(viewId)(viewId);
+      int index = _callbacks.length - 1;
+      _callbacks.elementAt(index)(index);
       final mapElement = DivElement();
       _mapElements.add(mapElement);
       return mapElement;
