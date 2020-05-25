@@ -191,7 +191,7 @@ class _MapboxMapState extends State<MapboxMap> {
         onCameraTrackingDismissed: widget.onCameraTrackingDismissed,
         onCameraTrackingChanged: widget.onCameraTrackingChanged,
         onMapIdle: widget.onMapIdle);
-    _controller.complete(controller);
+    if (!_controller.isCompleted) _controller.complete(controller);
     if (widget.onMapCreated != null) {
       widget.onMapCreated(controller);
     }
